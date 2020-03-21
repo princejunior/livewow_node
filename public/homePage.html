@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live W.O.W.</title>
+    <meta name="description" content="">    
+    <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="../trainer/css/styles-merged.css">
+    <link rel="stylesheet" href="../trainer/css/style.min.css">
+    <link rel="stylesheet" href="../trainer/css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    To add and clear items from booking/cart
+    <script type="text/javascript" src="../trainer/js/vendor/jquery.min.js"></script> -->
+    
+</head>
+<body>
+<form action=""> 
+    <label for="userId">User Id</label>
+    <input type="text" name='userId' id="userId"><br>
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" id="firstName"><br>
+    <label for="LastName">Last Name</label>
+    <input type="text" name="lastName" id="lastName"><br>
+    <label for="age">Age</label>
+    <input type="text" name="age" id="age"><br>
+    <button id="addBtn" class="btn">Add</button>
+    <button id="updateBtn">Update</button>
+    <button id="removeBtn">Remove</button>
+</form>
+
+<pre id="object"> </pre>
+
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Live W.O.W.</h1>
+            <p class="lead text-muted">Looking for a personal trainer or classes near you. 
+                    Live WOW is a plateform to help connect you to a 
+                    tailored trainer that is best for you! Trainers found here are certified 
+                    to come to your house, work, and even to a park to help you stay healthy. 
+                    No need to worry, you can pair up with a trainer to fit your busy schedule.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Find the Right Trainer for You</a>
+            </p>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-4" style="margin-bottom: 25px;" id=>
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" 
+                                src="" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                            <div class="card-body">
+                                <h3 class="card-title"></h3>
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                    
+                                        <!-- <a href='../profilePageLW.php?customer_id=<?php echo $customer_id?>&trainer_id=<?php echo $trainer_id;?>'><button class="btn btn-primary" value="<?php echo $id?>">View Profile</button></a> -->
+                                        <!-- <button class="btn btn-primary" value="<?php echo $id;?>">Add to Book</button> -->
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src='https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js'></script>
+<script src="./app.js"></script>
+<script src="../addUser.js"></script>
+
+</body>
+</html>
