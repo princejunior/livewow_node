@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const router = express.Router();
-const rootDir = require('../views/pages');
 
 // router.get('/homepage', async (req, res) => {
 //   console.log('inside the homePage');
@@ -9,7 +8,8 @@ const rootDir = require('../views/pages');
 // });
 
 router.get('/', function(req, res, next) {
-  res.render('homePage', {
+  console.log('inside the homePage');
+  res.render(path.join('pages', 'homePage'), {
     title: 'Home'
   });
 });

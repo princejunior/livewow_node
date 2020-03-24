@@ -13,17 +13,15 @@ const connectionString =
 const home = require('./routes/homePage');
 const login = require('./routes/loginPage');
 
-// tell it to use the public directory as one where static files live
-app.use(express.static(__dirname + '/public'));
 // views is directory for all template files
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 app.use(partials());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+// tell it to use the public directory as one where static files live
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', home);
@@ -35,7 +33,7 @@ app.use('/login', login);
 
 app.use((req, res) => {
   res.status(404);
-  res.render(path.join(__dirname, '/views', '404'));
+  res.render(path.join(__dirname, 'views', '404'));
 });
 
 app.listen(port, function() {
