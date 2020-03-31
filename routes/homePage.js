@@ -7,11 +7,11 @@ const router = express.Router();
 //   res.render(path.join('../views', 'pages', 'homePage'), {});
 // });
 
-router.get('/', function(req, res, next) {
-  console.log('inside the homePage');
-  res.render(path.join('pages', 'homePage'), {
-    title: 'Home'
-  });
-});
+// router.get('/', function(req, res, next) {
+//   console.log('inside the homePage');
+//   res.render(path.join('pages', 'homePage'), {
+//     title: 'Home'
+//   });
+// });
 
 module.exports = router;

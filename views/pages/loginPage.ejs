@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Inside folder -->
-    <link rel="stylesheet" type="text/css" href="homePageStlye.css">
+    <link rel="stylesheet" type="text/css" href="cssFiles/homePageStlye.css">
     <!-- Linking BootStrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,12 +16,32 @@
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="trainer/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <script src="../jsFiles/loginPage.js"></script>
     <link rel="stylesheet" type="text/css" href="cssFiles/loginPage.css">
 </head>
 <body class="text-center">
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+
+<%- include('../partials/header.ejs')%>
+<script>
+const firebaseConfig = {
+  apiKey: 'AIzaSyBfXAZeTVHZUmp-hiE-IkRnEOsmkVXpzKc',
+  authDomain: 'live-wow.firebaseapp.com',
+  databaseURL: 'https://live-wow.firebaseio.com',
+  projectId: 'live-wow',
+  storageBucket: 'live-wow.appspot.com',
+  messagingSenderId: '117609088137',
+  appId: '1:117609088137:web:5d518524c31ea8eddff258',
+  measurementId: 'G-61316CZYQ8'
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+</script>
     <img class="mb-4" src="https://polar-waters-71288.herokuapp.com/week05/assignment/photos_LW/lwLogo.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
     <div>
@@ -36,8 +56,8 @@
                 <input type="radio" name="options" id="option3" autocomplete="off" onfocus="login(3)"> Trainer Sign Up
             </label>
         </div>
-        <form id="login" class="form-signin" action="" method="POST">
-            <label for="inputEmail" class="sr-only">Email address</label>
+        <div id="login" class="form-signin">
+        <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Email address" required="" autofocus="">
             <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="">
@@ -45,25 +65,25 @@
                 <label>
                     <input type="checkbox" value="remember-me">Remember me
                 </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                 </div>
+            <button class="btn btn-lg btn-primary btn-block" onclick="login();">Login</button>
             <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
-        </form>
+        </div>
 
-        <form id="signUp" class="form-signin" action="" method="POST">
+        <div id="signUp" class="form-signin" >
             <label for="inputEmail" class="sr-only">First Name</label>
                 <input type="firstName" id="inputFirstName" class="form-control"  name="first_name" placeholder="First Name" required="" autofocus="">
             <label for="inputEmail" class="sr-only">Last Name</label>
                 <input type="lastName" id="inputLastName" class="form-control"  name="last_name" placeholder="Last Name" required="" autofocus="">
             <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Email address" required="" autofocus="">
+                <input type="email" id="inputEmail" class="form-control"  name="email" placeholder="Email address"  required="" autofocus="">
             <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button class="btn btn-lg btn-primary btn-block" onclick="register()">Sign Up</button>
             <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
-        </form>
+        </div>
 
-        <form id="trainerSignUp" class="form-signin" action="" method="POST">
+        <div id="trainerSignUp" class="form-signin">
             <label for="inputEmail" class="sr-only">First Name</label>
                 <input type="firstName" id="inputFirstName" class="form-control"  name="first_name" placeholder="First Name" required="" autofocus="">
             <label for="inputEmail" class="sr-only">Last Name</label>
@@ -90,9 +110,10 @@
                 </tbody>
             </table>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button class="btn btn-lg btn-primary btn-block" onclick="trainerSignUp()">Sign Up</button>
             <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
-        </form>
+        </div>
     </div>
+     
 </body>
 </html>
