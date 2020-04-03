@@ -3,6 +3,7 @@ var app = express();
 const path = require('path');
 var partials = require('express-partials');
 var bodyParser = require('body-parser');
+
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 const connectionString = process.env.DATABASE_URL;
@@ -18,28 +19,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // tell it to use the public directory as one where static files live
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res, next) {
-  console.log('inside the homePage');
-  res.render(path.join('pages', 'homePage'), {
-    title: 'LW'
-  });
-});
+// routes
+const home = require('./routes/homePage');
+const login = require('./routes/loginPage');
+const trainerProfilePage = require('./routes/trainerProfilePage');
+const profilePage = require('./routes/profilePage');
+const cartPage = require('./routes/cartPage');
 
-app.get('/login', function(req, res, next) {
-  console.log('inside the loginPage');
-  res.render(path.join('pages', 'loginPage'), {
-    title: 'LW Login'
-  });
-});
+// pages
+// const login = path.join('pages', 'loginPage');
+// const home = path.join('pages', 'homePage');
+// const trainerProfilePage = path.join('pages', 'trainerProfilePage');
+// const profilePage = path.join('pages', 'profilePage');
+// const cartPage = path.join('pages', 'cart');
 
-app.get('/trainerProfilePage', function(req, res, next) {
-  console.log('inside the trainerProfilePage');
-  res.render(path.join('pages', 'trainerProfilePage'), {
-    title: 'LW Profile'
-  });
-});
-
-// use res.render to load up an ejs view file
+// router pages
+app.use('/', home);
+app.use('/login', login);
+app.use('/trainerProfilePage', trainerProfilePage);
+app.use('/profilePage', profilePage);
+app.use('/cart', cartPage);
 
 app.use((req, res) => {
   res.status(404);
@@ -50,23 +49,25 @@ app.listen(port, function() {
   console.log('Node app is running on port', port);
 });
 
-// routes
-// const home = require('./routes/homePage');
-// const login = require('./routes/loginPage');
-// const trainerProfilePage = require('./routes/trainerProfilePage');
-// const profilePage = require('./routes/profilePage');
-// const cartPage = require('./routes/cartPage');
+// app.get('/', function(req, res, next) {
+//   console.log('inside the homePage');
+//   res.render(path.join('pages', 'homePage'), {
+//     title: 'LW'
+//   });
+// });
 
-// pages
-// const login = path.join('pages', 'loginPage');
-// const home = path.join('pages', 'homePage');
-// const trainerProfilePage = path.join('pages', 'trainerProfilePage');
-// const profilePage = path.join('pages', 'profilePage');
-// const cartPage = path.join('pages', 'cart');
+// app.get('/login', function(req, res, next) {
+//   console.log('inside the loginPage');
+//   res.render(path.join('pages', 'loginPage'), {
+//     title: 'LW Login'
+//   });
+// });
 
-// router pages
-// app.use('/', home);
-// app.use('/login', login);
-// app.use('/trainerProfilePage', trainerProfilePage);
-// app.use('/profilePage', profilePage);
-// app.use('/cart', cartPage);
+// app.get('/trainerProfilePage', function(req, res, next) {
+//   console.log('inside the trainerProfilePage');
+//   res.render(path.join('pages', 'trainerProfilePage'), {
+//     title: 'LW Profile'
+//   });
+// });
+
+// use res.render to load up an ejs view file

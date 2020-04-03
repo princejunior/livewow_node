@@ -1,12 +1,12 @@
-// const path = require('path');
-// const express = require('express');
-// const router = express.Router();
+const path = require('path');
+const express = require('express');
+const router = express.Router();
 
-// router.get('/', function(req, res, next) {
-//   console.log('inside the cartPage');
-//   res.render(path.join('pages', 'cart'), {
-//     title: 'Home'
-//   });
-// });
+router.get('/', function(req, res, next) {
+  console.log('inside the cartPage');
+  res.render(path.join('pages', 'cart'), {
+    title: 'Home'
+  });
+});
 
-// module.exports = router;
+module.exports = router;

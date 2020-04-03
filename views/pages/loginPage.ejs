@@ -22,26 +22,7 @@
     <link rel="stylesheet" type="text/css" href="cssFiles/loginPage.css">
 </head>
 <body class="text-center">
-    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
-
 <%- include('../partials/header.ejs')%>
-<script>
-const firebaseConfig = {
-  apiKey: 'AIzaSyBfXAZeTVHZUmp-hiE-IkRnEOsmkVXpzKc',
-  authDomain: 'live-wow.firebaseapp.com',
-  databaseURL: 'https://live-wow.firebaseio.com',
-  projectId: 'live-wow',
-  storageBucket: 'live-wow.appspot.com',
-  messagingSenderId: '117609088137',
-  appId: '1:117609088137:web:5d518524c31ea8eddff258',
-  measurementId: 'G-61316CZYQ8'
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-</script>
     <img class="mb-4" src="https://polar-waters-71288.herokuapp.com/week05/assignment/photos_LW/lwLogo.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
     <div>
